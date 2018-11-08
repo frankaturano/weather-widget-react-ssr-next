@@ -95,7 +95,7 @@ export default class Index extends Component {
     // Oh, but some error handling would have been nice... even just a little!!
     fetch(url).then(response => {
       response.json().then(({ query }) => { // let's assume the api is always just working lol
-        if (query.results && query.results.channel && query.results.channel.location) {
+        if (query && query.results && query.results.channel && query.results.channel.location) {
           let data = this.state.data.concat([query.results.channel])
           this.setState({ data }, () => this.jumpTo(data.length - 1))
           // SOOOO... storing a cookie would be super easy
